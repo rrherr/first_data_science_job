@@ -1,0 +1,832 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Learn SQL &#8212; Prepare for Your First Data Science Job</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Prepare for Your First Data Science Job</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/rrherr/Prepare for Your First Data Science Job"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/rrherr/Prepare for Your First Data Science Job/issues/new?title=Issue%20on%20page%20%2Fsql.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/sql.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-sql">
+     What is SQL?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-learn-sql">
+     Why learn SQL?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-debug-sql-queries">
+     How to debug SQL queries
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-bolt">
+   1. SQL Bolt
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#select-star-sql">
+   2. Select Star SQL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mode-intermediate-tutorial">
+   3. Mode intermediate tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mode-advanced-tutorial">
+   4. Mode advanced tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-bolt-continued">
+   5. SQL Bolt continued
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Learn SQL</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-sql">
+     What is SQL?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-learn-sql">
+     Why learn SQL?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-debug-sql-queries">
+     How to debug SQL queries
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-bolt">
+   1. SQL Bolt
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#select-star-sql">
+   2. Select Star SQL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mode-intermediate-tutorial">
+   3. Mode intermediate tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mode-advanced-tutorial">
+   4. Mode advanced tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-bolt-continued">
+   5. SQL Bolt continued
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="learn-sql">
+<h1>Learn SQL<a class="headerlink" href="#learn-sql" title="Permalink to this headline">#</a></h1>
+<p>Here’s a list of 5 hands-on SQL tutorials, and comics that explain the concepts for each topic!</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<section id="what-is-sql">
+<h3>What is SQL?<a class="headerlink" href="#what-is-sql" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://simple.wikipedia.org/wiki/Structured_Query_Language">Simple English Wikipedia</a> explains well:</p>
+<blockquote>
+<div><p>Structured Query Language (SQL) is a language used to view or change data in databases. The statements used in this language are called SQL queries.</p>
+<p>This is a simple SQL Query which is used to show all values stored in column named ‘my_column’ from the data table named ‘my_table’.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">my_column</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">my_table</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="why-learn-sql">
+<h3>Why learn SQL?<a class="headerlink" href="#why-learn-sql" title="Permalink to this headline">#</a></h3>
+<p>I agree with this <a class="reference external" href="https://vickiboykis.com/2022/01/09/git-sql-cli/">advice from Vicki Boykis</a>:</p>
+<blockquote>
+<div><p>Learn SQL first. You absolutely cannot do any data work until you are able to get data from a source. …</p>
+<p>Let’s forget about the fancy stuff: 80-90% of the tech industry runs on traditional relational databases … Once you know how to speak SQL, you can speak to any of them.</p>
+<p>SQL is also hands-down the easiest language for beginners to learn …</p>
+</div></blockquote>
+</section>
+<section id="how-to-debug-sql-queries">
+<h3>How to debug SQL queries<a class="headerlink" href="#how-to-debug-sql-queries" title="Permalink to this headline">#</a></h3>
+<p>Write and debug SQL one step at a time. Follow this <a class="reference external" href="https://dataschool.com/how-to-teach-people-sql/debugging-sql-0-rows-returned/">great advice</a>:</p>
+<blockquote>
+<div><p>Whenever you get a result you do not expect in SQL take a second and break down the query into smaller bits. Remove or comment clauses out one by one to find where the query stopped making sense. To comment out a part of your SQL query … all you do is add two dashes in front of a line of SQL.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">facebook</span><span class="w"></span>
+<span class="c1">--WHERE &quot;# of Friends&quot; &gt; 1000</span>
+</pre></div>
+</div>
+<p>This concept of breaking queries into small pieces also works when you are initially creating the query. Start with a query that only contains SELECT, FROM, and LIMIT. Then layer on each additional SQL clause 1 at a time and run it to see if there are any issues. While this practice is slow you are much less likely to run into an issue in your query that you don’t know the cause of.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="sql-bolt">
+<h2>1. SQL Bolt<a class="headerlink" href="#sql-bolt" title="Permalink to this headline">#</a></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Do exercises</th>
+      <th>Read comics</th>
+    </tr>
+  </thead>
+<tr>
+<td>
+<p><a class="reference external" href="https://sqlbolt.com/lesson/introduction">Introduction to SQL</a><br />
+<a class="reference external" href="https://sqlbolt.com/lesson/select_queries_introduction">SQL Lesson 1: SELECT queries 101</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/getting-started-select/">getting started with SELECT</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://sqlbolt.com/lesson/select_queries_with_constraints">SQL Lesson 2: Queries with constraints (Pt. 1)</a><br />
+<a class="reference external" href="https://sqlbolt.com/lesson/select_queries_with_constraints_pt_2">SQL Lesson 3: Queries with constraints (Pt. 2)</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/where/">WHERE</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://sqlbolt.com/lesson/filtering_sorting_query_results">SQL Lesson 4: Filtering and sorting Query results</a><br />
+<a class="reference external" href="https://sqlbolt.com/lesson/select_queries_review">SQL Review: Simple SELECT Queries</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/order-by-limit/">ORDER BY and LIMIT</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://sqlbolt.com/lesson/select_queries_with_joins">SQL Lesson 6: Multi-table queries with JOINs</a><br />
+<a class="reference external" href="https://sqlbolt.com/lesson/select_queries_with_outer_joins">SQL Lesson 7: OUTER JOINs</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/joins/">my rules for simple JOINs</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/inner-left-join/">INNER JOIN and LEFT JOIN</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/example-join/">SQL example: LEFT JOIN + GROUP BY</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://sqlbolt.com/lesson/select_queries_with_nulls">SQL Lesson 8: A short note on NULLs</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/null-unknown-missing/">NULL: unknown or missing</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/null-surprises/">NULL surprises</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/questions-to-ask/">questions to ask about your data</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://sqlbolt.com/lesson/select_queries_with_expressions">SQL Lesson 9: Queries with expressions</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/select/">SELECT</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/where/">WHERE</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://sqlbolt.com/lesson/select_queries_with_aggregates">SQL Lesson 10: Queries with aggregates (Pt. 1)</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/group-by/">GROUP BY</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/example-join/">SQL example: LEFT JOIN + GROUP BY</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/ways-to-count/">SQL: ways to count</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://sqlbolt.com/lesson/select_queries_with_aggregates_pt_2">SQL Lesson 11: Queries with aggregates (Pt. 2)</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/having/">HAVING</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://sqlbolt.com/lesson/select_queries_order_of_execution">SQL Lesson 12: Order of execution of a Query</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/sql-query-order/">SELECT queries start with FROM</a></p>
+</td>
+</tr>
+</table>
+</section>
+<section id="select-star-sql">
+<h2>2. Select Star SQL<a class="headerlink" href="#select-star-sql" title="Permalink to this headline">#</a></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Do exercises</th>
+      <th>Read comics</th>
+    </tr>
+  </thead>
+<tr>
+<td>
+<p><a class="reference external" href="https://selectstarsql.com/frontmatter.html">Select Star SQL</a><br />
+<a class="reference external" href="https://selectstarsql.com/beazley.html">Chapter 1: Beazley’s Last Statement</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/getting-started-select/">getting started with SELECT</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/select/">SELECT</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/where/">WHERE</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/single-quote/">single quote your strings</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://selectstarsql.com/innocence.html">Chapter 2: Claims of Innocence</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/ways-to-count/">SQL: ways to count</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/null-unknown-missing/">NULL: unknown or missing</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/null-surprises/">NULL surprises</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/case/">CASE</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://selectstarsql.com/longtail.html">Chapter 3: The Long Tail</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/group-by/">GROUP BY</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/having/">HAVING</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/sql-query-order/">SELECT queries start with FROM</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/order-by-limit/">ORDER BY and LIMIT</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/subqueries/">subqueries</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://selectstarsql.com/hiatuses.html">Chapter 4: Execution Hiatuses</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/joins/">my rules for simple JOINs</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/inner-left-join/">INNER JOIN and LEFT JOIN</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/example-join/">SQL example: LEFT JOIN + GROUP BY</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/questions-to-ask/">questions to ask about your data</a></p>
+</td>
+</tr>
+</table>
+</section>
+<section id="mode-intermediate-tutorial">
+<h2>3. Mode intermediate tutorial<a class="headerlink" href="#mode-intermediate-tutorial" title="Permalink to this headline">#</a></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Do exercises</th>
+      <th>Read comics</th>
+    </tr>
+  </thead>
+<tr>
+<td>
+<p><a class="reference external" href="https://mode.com/sql-tutorial/introduction-to-sql/">SQL for Data Analysis: Tutorial Introduction - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-in-mode/">Using SQL in Mode | Basic SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/intro-to-intermediate-sql/">Putting it together | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-aggregate-functions/">SQL Aggregate Functions | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-count/">SQL COUNT | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-sum/">SQL SUM | Intermediate SQL - Mode</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/ways-to-count/">SQL: ways to count</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/single-quote/">single quote your strings</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://mode.com/sql-tutorial/sql-min-max/">SQL MIN/MAX | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-avg/">SQL AVG | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-group-by/">SQL GROUP BY | Intermediate SQL - Mode</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/group-by/">GROUP BY</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://mode.com/sql-tutorial/sql-having/">SQL HAVING | Intermediate SQL - Mode</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/having/">HAVING</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/sql-query-order/">SELECT queries start with FROM</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://mode.com/sql-tutorial/sql-case/">SQL CASE | Intermediate SQL - Mode</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/case/">CASE</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://mode.com/sql-tutorial/sql-distinct/">SQL DISTINCT | Intermediate SQL - Mode</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/ways-to-count/">SQL: ways to count</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://mode.com/sql-tutorial/sql-joins/">SQL Joins | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-inner-join/">SQL INNER JOIN | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-outer-joins/">SQL Outer Joins | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-left-join/">SQL LEFT JOIN | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-right-join/">SQL RIGHT JOIN | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-joins-where-vs-on/">SQL Joins Using WHERE or ON | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-full-outer-join/">SQL FULL OUTER JOIN | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-union/">SQL UNION | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-join-comparison-operators/">SQL Joins with Comparison Operators | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-joins-on-multiple-keys/">SQL Joins on Multiple Keys | Intermediate SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-self-joins/">SQL Self Joins | Intermediate SQL - Mode</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/joins/">my rules for simple JOINs</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/inner-left-join/">INNER JOIN and LEFT JOIN</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/example-join/">SQL example: LEFT JOIN + GROUP BY</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/null-unknown-missing/">NULL: unknown or missing</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/null-surprises/">NULL surprises</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/questions-to-ask/">questions to ask about your data</a></p>
+</td>
+</tr>
+</table>
+</section>
+<section id="mode-advanced-tutorial">
+<h2>4. Mode advanced tutorial<a class="headerlink" href="#mode-advanced-tutorial" title="Permalink to this headline">#</a></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Do exercises</th>
+      <th>Read comics</th>
+    </tr>
+  </thead>
+<tr>
+<td>
+<p><a class="reference external" href="https://mode.com/sql-tutorial/intro-to-advanced-sql/">Leveling up | Advanced SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-data-types/">SQL Data Types | Advanced SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-datetime-format/">SQL Date Format | Advanced SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/data-wrangling-with-sql/">Data Wrangling with SQL | Advanced SQL - Mode</a><br />
+<a class="reference external" href="https://mode.com/sql-tutorial/sql-string-functions-for-cleaning/">Using SQL String Functions to Clean Data | Advanced SQL - Mode</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/select/">SELECT</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/coalesce/">COALESCE</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://mode.com/sql-tutorial/sql-sub-queries/">Writing Subqueries in SQL | Advanced SQL - Mode</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/subqueries/">subqueries</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://mode.com/sql-tutorial/sql-window-functions/">SQL Window Functions | Advanced SQL - Mode</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/window-functions-intro/">window functions</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/over-assigns-window/">OVER() assigns every row a window</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/example-baby-feedings/">SQL example: get the time between baby feedings</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://mode.com/sql-tutorial/sql-performance-tuning/">Performance Tuning SQL Queries | Advanced SQL - Mode</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/indexes/">how indexes make your queries fast</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/explain/">EXPLAIN</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://mode.com/sql-tutorial/sql-pivot-table/">Pivoting Data in SQL | Advanced SQL - Mode</a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://wizardzines.com/comics/subqueries/">subqueries</a><br />
+<a class="reference external" href="https://wizardzines.com/comics/ways-to-count/">SQL: ways to count</a></p>
+</td>
+</tr>
+</table>
+</section>
+<section id="sql-bolt-continued">
+<h2>5. SQL Bolt continued<a class="headerlink" href="#sql-bolt-continued" title="Permalink to this headline">#</a></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Do exercises</th>
+    </tr>
+  </thead>
+<tr>
+<td>
+<p><a class="reference external" href="https://sqlbolt.com/lesson/inserting_rows">SQL Lesson 13: Inserting rows</a><br />
+<a class="reference external" href="https://sqlbolt.com/lesson/updating_rows">SQL Lesson 14: Updating rows</a><br />
+<a class="reference external" href="https://sqlbolt.com/lesson/deleting_rows">SQL Lesson 15: Deleting rows</a><br />
+<a class="reference external" href="https://sqlbolt.com/lesson/creating_tables">SQL Lesson 16: Creating tables</a><br />
+<a class="reference external" href="https://sqlbolt.com/lesson/altering_tables">SQL Lesson 17: Altering tables</a><br />
+<a class="reference external" href="https://sqlbolt.com/lesson/dropping_tables">SQL Lesson 18: Dropping tables</a></p>
+</td>
+</tr>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ryan Herr<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
